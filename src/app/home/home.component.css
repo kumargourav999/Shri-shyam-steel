@@ -1,0 +1,39 @@
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Set a fixed max width */
+  height: 450px;     /* Set fixed height for all images */
+  margin: auto;
+  overflow: hidden;
+  background: linear-gradient(135deg, #141e30, #243b55); /* optional gradient */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.slide-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fill but keep aspect ratio */
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 1.5s ease-in-out, filter 1.5s ease-in-out;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+.slide-img.active {
+  opacity: 1;
+  filter: blur(0);
+  z-index: 1;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .slideshow-container {
+    max-width: 100%;
+    height: 250px;
+  }
+}

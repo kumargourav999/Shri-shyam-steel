@@ -1,0 +1,45 @@
+ <h1>UPVC Door & Windows</h1>
+<div class="slideshow-container">
+   
+  <img
+    *ngFor="let img of images; let i = index"
+    [src]="img"
+    class="slide-img"
+    [class.active]="i === currentIndex"
+    alt="Slideshow Image"
+  />
+</div>
+<h1>Wooden Cabinet</h1>
+<div class="slideshow-container">
+   
+  <img
+    *ngFor="let img of tvCabinet; let i = index"
+    [src]="img"
+    class="slide-img"
+    [class.active]="i === currentIndex1"
+    alt="Slideshow Image"
+  />
+</div>
+<h1>Fluted Pannel</h1>
+<div class="slideshow-container">
+   
+  <img
+    *ngFor="let img of flutedPannel; let i = index"
+    [src]="img"
+    class="slide-img"
+    [class.active]="i === currentIndex2"
+    alt="Slideshow Image"
+  />
+</div>
+
+<h1>Marble Sheets</h1>
+<div class="slideshow-container">
+   
+  <img
+    *ngFor="let img of marbelSheet; let i = index"
+    [src]="img"
+    class="slide-img"
+    [class.active]="i === currentIndex3"
+    alt="Slideshow Image"
+  />
+</div>

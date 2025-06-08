@@ -1,0 +1,10 @@
+<div class="product-gallery">
+  <div class="product-card" *ngFor="let product of products">
+    <img [src]="product.image" alt="{{ product.name || 'Product Image' }}" />
+    <div class="product-details">
+      <h3>{{ product.name || 'Product Name Coming Soon' }}</h3>
+      <p><strong>Category:</strong> {{ product.category || 'Not Available' }}</p>
+      <p><strong>Material:</strong> {{ product.materialUsed || 'Not Available' }}</p>
+    </div>
+  </div>
+</div>
