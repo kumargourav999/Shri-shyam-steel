@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
-   url="https://localhost:3000/admin"
-   url1="https://localhost:3000/AddProductCategory"
+   url="http://localhost:3000/admin"
+   url1="http://localhost:3000/AddProductCategory"
 
    
   getAllProduct():Observable<any[]>{
