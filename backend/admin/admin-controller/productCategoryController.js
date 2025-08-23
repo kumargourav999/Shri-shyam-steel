@@ -1,0 +1,26 @@
+const express=require('express');
+const router=express.Router();
+const ProductCategory=require('../admin-models/productCategoryModel');
+router.post('/',async(req,res)=>{
+       try{
+            
+          
+        // extract category string
+        const addCategory = new ProductCategory({ productCategory:req.body.category }); // ✅ pass to schema
+        await addCategory.save();
+        
+       }catch(err){
+             res.status(500).send(err) 
+       }
+})
+router.get("/" ,async(req,res)=>{
+      try{
+
+      
+      const category=await ProductCategory.find();
+      res.status(200).send(category);
+      }catch(err){
+            res.status(400).send(err)
+      }
+})
+module.exports=router;

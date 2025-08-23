@@ -1,0 +1,155 @@
+import { Component,OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { withNoHttpTransferCache } from '@angular/platform-browser';
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
+})
+export class ProductsComponent  implements OnInit{
+  ngOnInit(){
+    this.getAllProducts();
+    this.getAllCategory();
+  }
+products:any[]=[]
+allCategory:any=[];
+productCategory:any={
+  category:"",
+};
+   imageBaseUrl = 'http://localhost:3000/'; 
+  getAllProducts(){
+    this.productService.getAllProduct().subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.products=res;
+
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+  showForm = false;
+editmode=false;
+showInputCategory=false;
+  product: {
+    productName: string;
+    productCategory: string;
+    price: number | null;
+    productImages: string[];
+  } = {
+    productName: '',
+    productCategory: '',
+    price: null,
+    productImages: []
+  };
+  selectedFiles: File[] = [];
+
+  constructor(private productService: ProductService) {}
+
+  onAddClick() {
+    this.showForm = true;
+  }
+
+  onFileChange(event: any) {
+    this.selectedFiles = Array.from(event.target.files);
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('productName', this.product.productName);
+    formData.append('productCategory', this.product.productCategory);
+    formData.append('price', this.product.price?.toString() || '');
+
+    this.selectedFiles.forEach((file) => {
+      formData.append('productImages', file);
+    });
+
+    this.productService.createProduct(formData).subscribe({
+      next: (res) => {
+        console.log('Product saved:', res);
+        alert('Product uploaded successfully!');
+        this.getAllProducts()
+        this.resetForm();
+      },
+      error: (err) => {
+        console.error('Upload failed:', err);
+        alert('Something went wrong.');
+      }
+    });
+  }
+  getproduct:any=[];
+  onEdit(product:any){
+    
+    this.showForm=true;
+    this.editmode=true;
+    this.productService.getProductId(product._id).subscribe({
+      next:(data)=>{
+       
+        this.getproduct=data;;
+        this.product=this.getproduct;
+        console.log("jii",this.product);
+      }
+    });
+
+  }
+
+   onClickEdit(){
+     this.productService.editProduct(this.getproduct._id,this.product).subscribe({
+      next:(res)=>{
+        if(res){
+          this.getAllProducts();
+          this.resetForm();
+          
+        }
+      }
+     });
+     
+   }
+
+  onDelete(id:any){
+    alert(id)
+    this.productService.deleteProduct(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        alert(res);
+        this.getAllProducts();
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  resetForm() {
+    this.product = {
+      productName: '',
+      productCategory: '',
+      price: null,
+      productImages: []
+    };
+    this.selectedFiles = [];
+    this.showForm = false;
+    this.editmode=false;
+  }
+  addCatogory(){
+   this.showInputCategory=true;
+  }
+  submitCategory(){
+    alert(this.productCategory)
+    this.productService.addCategory(this.productCategory).subscribe({
+      next:(res)=>{
+        alert(res);
+        this.getAllCategory();
+      }
+    })
+  }
+  getAllCategory(){
+    this.productService.getCategory().subscribe({
+      next:(res)=>{
+        this.allCategory=res;
+        console.log(this.allCategory)
+      }
+    })
+  }
+}
