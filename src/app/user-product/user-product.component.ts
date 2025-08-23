@@ -18,6 +18,7 @@ export class UserProductComponent implements OnInit{
   ngOnInit(): void {
       this.productservice.getAllProduct().subscribe({
         next:(res)=>{
+          alert("hii");
              this.allproducts=res;
            
         }
