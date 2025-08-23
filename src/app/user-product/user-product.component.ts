@@ -19,7 +19,7 @@ export class UserProductComponent implements OnInit{
       this.productservice.getAllProduct().subscribe({
         next:(res)=>{
              this.allproducts=res;
-             alert(JSON.stringify(this.allproducts));
+           
         }
       })
   }
