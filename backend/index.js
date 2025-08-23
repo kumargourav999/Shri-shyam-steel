@@ -1,6 +1,7 @@
 const express=require('express');
 const app=express();
 const db=require('./db')
+const PORT = process.env.PORT || 3000;
 const cors=require("cors");
 const path = require('path');
 const bodyparder=require("body-parser")
@@ -9,7 +10,7 @@ const ProductCategoryController=require("./admin/admin-controller/productCategor
 app.use(cors());
 app.use(bodyparder.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.listen(3000,(()=>{
+app.listen(PORT,(()=>{
     console.log("app is ruuning in port 3000");
 }));
 app.use('/admin',ProductController);
