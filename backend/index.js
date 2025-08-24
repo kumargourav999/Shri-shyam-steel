@@ -10,6 +10,12 @@ const ProductCategoryController=require("./admin/admin-controller/productCategor
 app.use(cors());
 app.use(bodyparder.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // allow all origins
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 app.listen(PORT,(()=>{
     console.log("app is ruuning in port 3000");
 }));
