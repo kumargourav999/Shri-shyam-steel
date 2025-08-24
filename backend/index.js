@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyparder.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors({
-  origin: "https://shri-shyam-steel2.onrender.com",
+  origin: "http://localhost:3000",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
