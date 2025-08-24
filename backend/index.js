@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const db=require('./db')
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 const cors=require("cors");
 const path = require('path');
 const bodyparder=require("body-parser")
@@ -10,11 +10,7 @@ const ProductCategoryController=require("./admin/admin-controller/productCategor
 app.use(cors());
 app.use(bodyparder.json())
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use(cors({
-  origin: "http://localhost:3000",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+
 app.listen(PORT,(()=>{
     console.log("app is ruuning in port 3000");
 }));
