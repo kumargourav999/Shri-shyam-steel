@@ -1,7 +1,7 @@
 const express=require('express');
 const app=express();
 const db=require('./db')
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 const cors=require("cors");
 const path = require('path');
 const bodyparder=require("body-parser")
