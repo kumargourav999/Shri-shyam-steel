@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
-   url="http://localhost:3000/admin"
+   url="http://localhost:3000/admin";
    // url = "https://shri-shyam-steel2.onrender.com/admin";
    url1="http://localhost:3000/AddProductCategory"
 
