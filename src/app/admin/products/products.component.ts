@@ -16,7 +16,7 @@ allCategory:any=[];
 productCategory:any={
   category:"",
 };
-   imageBaseUrl = 'http://localhost:3000/'; 
+   imageBaseUrl = 'https://shri-shyam-steelok94311.onrender.com/'; 
   getAllProducts(){
     this.productService.getAllProduct().subscribe({
       next:(res)=>{
