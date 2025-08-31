@@ -9,7 +9,7 @@ export class UserProductComponent implements OnInit{
   constructor(private productservice:ProductService){
 
   }
-  imageBaseUrl = 'http://localhost:3000/'; 
+  imageBaseUrl = 'https://shri-shyam-steelok94311.onrender.com/'; 
   allproducts: any[] = [];
    showPreview = false;
   selectedImage: string = '';
