@@ -39,7 +39,7 @@ export class UserProductComponent implements OnInit{
   prevImage(){
     if(this.currentIndex>0){
  this.currentIndex= this.currentIndex-1;
- this.selectedImage=`http://localhost:3000/${this.productimagelist[this.currentIndex]}`;
+ this.selectedImage=`https://shri-shyam-steelok94311.onrender.com/${this.productimagelist[this.currentIndex]}`;
     }
 
   }
@@ -47,7 +47,7 @@ export class UserProductComponent implements OnInit{
      
       if(this.currentIndex<this.productimagelist.length-1){
        this.currentIndex= this.currentIndex+1;
-       this.selectedImage=`http://localhost:3000/${this.productimagelist[this.currentIndex]}`;
+       this.selectedImage=`https://shri-shyam-steelok94311.onrender.com/${this.productimagelist[this.currentIndex]}`;
       }
     
   }
