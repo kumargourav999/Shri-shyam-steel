@@ -8,6 +8,7 @@ router.post('/',async(req,res)=>{
         // extract category string
         const addCategory = new ProductCategory({ productCategory:req.body.category }); // ✅ pass to schema
         await addCategory.save();
+          res.send("category added successfully");
         
        }catch(err){
              res.status(500).send(err) 
