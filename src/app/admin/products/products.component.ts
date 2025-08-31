@@ -139,7 +139,8 @@ showInputCategory=false;
    
     this.productService.addCategory(this.productCategory).subscribe({
       next:(res)=>{
-      
+       alert("Category Added Successfully");
+        this.showInputCategory=false;
         this.getAllCategory();
       }
     })
