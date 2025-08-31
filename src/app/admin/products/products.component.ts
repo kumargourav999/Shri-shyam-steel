@@ -74,7 +74,7 @@ showInputCategory=false;
       },
       error: (err) => {
         console.error('Upload failed:', err);
-        alert('Something went wrong.');
+        
       }
     });
   }
@@ -108,11 +108,11 @@ showInputCategory=false;
    }
 
   onDelete(id:any){
-    alert(id)
+  
     this.productService.deleteProduct(id).subscribe({
       next:(res)=>{
         console.log(res);
-        alert(res);
+      
         this.getAllProducts();
       },
       error:(err)=>{
@@ -136,10 +136,10 @@ showInputCategory=false;
    this.showInputCategory=true;
   }
   submitCategory(){
-    alert(this.productCategory)
+   
     this.productService.addCategory(this.productCategory).subscribe({
       next:(res)=>{
-        alert(res);
+      
         this.getAllCategory();
       }
     })
