@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 export class ProductService {
 
   constructor(private http:HttpClient) { }
-   url="https://shri-shyam-steel-ok174.onrender.com/admin";
+   url="https://shri-shyam-steelok94311.onrender.com/admin";
    // url = "https://shri-shyam-steel2.onrender.com/admin";
-   url1="https://shri-shyam-steel-ok174.onrender.com/AddProductCategory"
+   url1="https://shri-shyam-steelok94311.onrender.com/AddProductCategory"
 
    
   getAllProduct():Observable<any[]>{
