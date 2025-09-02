@@ -27,6 +27,14 @@
 
         <div class="-3">
           <label class="form-label">Product Category</label><button  class="btn btn-success shadow" style="float:right" (click)="addCatogory()">Add Catogory</button>
+           <div *ngIf="showEditCategory">
+            <div  *ngFor="let cat of allCategory" style="margin-top: 10px;">
+              <span>{{cat.productCategory}}</span>
+              <button class="btn btn-sm btn-outline-danger" (click)="onDeleteCategory(cat._id)" style="float:right">
+              <i class="bi bi-trash"></i> Delete
+            </button>
+            </div>
+          </div>
           <input *ngIf="showInputCategory" type="text" name="productCategory" [(ngModel)]="productCategory.category"class="form-control" ><button *ngIf="showInputCategory"  (click)="submitCategory()">Add</button>
           <select
             type="text"
