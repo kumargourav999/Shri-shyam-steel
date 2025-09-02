@@ -12,6 +12,7 @@ export class ProductsComponent  implements OnInit{
     this.getAllCategory();
   }
 products:any[]=[]
+  showEditCategory=false;
 allCategory:any=[];
 productCategory:any={
   category:"",
@@ -140,6 +141,7 @@ showInputCategory=false;
     this.productService.addCategory(this.productCategory).subscribe({
       next:(res)=>{
        alert("Category Added Successfully");
+         alert("Category Added Successfully");
         this.showInputCategory=false;
         this.getAllCategory();
       }
@@ -152,5 +154,18 @@ showInputCategory=false;
         console.log(this.allCategory)
       }
     })
+  }
+  editCatogory(){
+    this.showEditCategory=true;
+  }
+  onDeleteCategory(id:any){
+    this.productService.deleteCategory(id).subscribe(
+      {
+        next:(res)=>{
+         alert(res);
+         this.getAllCategory();
+        }
+      }
+    );
   }
 }
