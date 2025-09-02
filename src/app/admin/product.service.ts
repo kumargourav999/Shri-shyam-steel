@@ -27,6 +27,9 @@ export class ProductService {
   getProductId(id:any){
     return this.http.get(`${this.url}/${id}`,{responseType:'json'})
   }
+    deleteCategory(id:any){
+    return this.http.delete(`${this.url1}/${id}`,{responseType:'text'})
+  }
   addCategory(category:any){
   return this.http.post(`${this.url1}`,category,{responseType:'text'})
   }
