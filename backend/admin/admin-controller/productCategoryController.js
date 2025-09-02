@@ -24,4 +24,12 @@ router.get("/" ,async(req,res)=>{
             res.status(400).send(err)
       }
 })
+router.delete('/:id',async(req,res)=>{
+      try{
+      await ProductCategory.findByIdAndDelete(req.params.id);
+      res.status(200).send("category deleted succssfully")
+      }catch(err){
+        res.send(err);
+      }
+})
 module.exports=router;
