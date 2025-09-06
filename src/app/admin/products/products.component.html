@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
       <form (ngSubmit)="onSubmit()">
-        <div class="mmbb-3">
+        <div class="mb-3">
           <label class="form-label">Product Name</label>
           <input
             type="text"
@@ -24,10 +24,21 @@
             placeholder="e.g. Steel Door Frame"
           />
         </div>
+        <div class="mb-3">
+          <label class="form-label">Product Description</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="product.productDescription"
+            name="productDescription"
+            required
+            placeholder="Description"
+          />
+        </div>
 
-        <div class="-3">
-          <label class="form-label">Product Category</label><button  class="btn btn-success shadow" style="float:right" (click)="addCatogory()">Add Catogory</button><button  class="btn btn-success shadow" style="float:right" (click)="editCatogory()">Edit Catogory</button>
-           <div *ngIf="showEditCategory">
+        <div class="mb-3">
+          <label class="form-label">Product Category</label><button  class="btn btn-success shadow btn1" style="float:right" (click)="addCatogory()">Add </button><button  class="btn btn-success shadow btn1" style="float:right" (click)="editCatogory()">Edit </button>
+          <div *ngIf="showEditCategory">
             <div  *ngFor="let cat of allCategory" style="margin-top: 10px;">
               <span>{{cat.productCategory}}</span>
               <button class="btn btn-sm btn-outline-danger" (click)="onDeleteCategory(cat._id)" style="float:right">
@@ -49,7 +60,7 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label">Price</label>
+          <label class="form-label">Price Per Unit</label>
           <input
             type="number"
             class="form-control"
@@ -58,7 +69,14 @@
             placeholder="Enter price in ₹"
           />
         </div>
-
+        <div class="mb-3">
+          <label class="form-label">Unit</label>
+          <select  class="form-control"  [(ngModel)]="product.unit"  name="unit"  type="text">
+            <option value="/Square Feet">/Square Feet</option>
+            <option value="/Square Meter">/Square Meter</option>
+            <option value="/Kilogram">/Kilogram</option>
+          </select>
+        </div>
         <div class="mb-3">
           <label class="form-label">Product Images</label>
           <input
