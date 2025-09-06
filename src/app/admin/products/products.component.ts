@@ -35,13 +35,17 @@ editmode=false;
 showInputCategory=false;
   product: {
     productName: string;
+    productDescription:string,
     productCategory: string;
     price: number | null;
+    unit:string,
     productImages: string[];
   } = {
     productName: '',
+    productDescription:'',
     productCategory: '',
     price: null,
+    unit:'',
     productImages: []
   };
   selectedFiles: File[] = [];
@@ -58,9 +62,12 @@ showInputCategory=false;
 
   onSubmit() {
     const formData = new FormData();
-    formData.append('productName', this.product.productName);
+   formData.append('productName', this.product.productName);
+     formData.append('productDescription', this.product.productDescription);
+    
     formData.append('productCategory', this.product.productCategory);
     formData.append('price', this.product.price?.toString() || '');
+     formData.append('unit', this.product.unit);
 
     this.selectedFiles.forEach((file) => {
       formData.append('productImages', file);
@@ -124,8 +131,10 @@ showInputCategory=false;
 
   resetForm() {
     this.product = {
-      productName: '',
+     productName: '',
+      productDescription:'',
       productCategory: '',
+      unit:'',
       price: null,
       productImages: []
     };
