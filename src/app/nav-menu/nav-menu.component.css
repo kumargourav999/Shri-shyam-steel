@@ -56,15 +56,19 @@
   }
 
   .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    background-color: #374151; /* Slightly lighter dark */
-    padding: 10px 20px;
+   display: flex;
+        flex-direction: column;
+        background-color: white;
+        opacity: 1;
+        
+        padding: 10px 20px;
+        text-align: center;
   }
 
   .mobile-nav a {
     padding: 10px 0;
-    border-bottom: 1px solid #4b5563;
+    border-bottom: 1px solid #4177c4;
+    color:black
   }
 
   .mobile-nav a:last-child {
