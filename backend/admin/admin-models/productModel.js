@@ -4,6 +4,10 @@ const Product=mongoose.model("product",{
     type:String,
     required:true
    },
+   productDescription:{
+    type:String,
+    required:true
+   },
    productCategory:{
     type:String,
     required:true
@@ -14,6 +18,9 @@ const Product=mongoose.model("product",{
    },
    price:{
     type:Number,
+   },
+     unit:{
+      type:String
    }
    
 })
