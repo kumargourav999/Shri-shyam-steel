@@ -3,24 +3,33 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
   padding: 20px;" >
-<div class="product-card" *ngFor="let product of allproducts" >
+<div class="product-card" *ngFor="let product of allproducts ;let i = index" >
   <div class="product-image" (click)="openPreview(imageBaseUrl+product.productImages[0],product)">
     <img [src]= "imageBaseUrl + product.productImages[0]" alt="Product Image">
     <span class="badge">New</span>
   </div>
   <div class="product-info">
     <h3 class="product-title">{{product.productName}}</h3>
-    <p class="product-description">This is a short product description that highlights the key features.</p>
-    <p>Category:{{product.productCategory}}</p>
+   <div class="description-toggle" (click)="toggleDescription(i)">
+        <span *ngIf="!showDescription[i]">View Details</span>
+        <span *ngIf="showDescription[i]">Hide Details</span>
+          <i class="fa" style="margin-left:10px" [ngClass]="showDescription[i] ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </div>
+
+      <!-- Show/Hide description -->
+      <p class="product-description" *ngIf="showDescription[i]">
+        {{product.productDescription}}
+      </p>
+    <p *ngIf="showDescription[i]">Category:{{product.productCategory}}</p>
     
-    <div class="rating">
-      ★★★★☆
-      <span class="reviews">(120 reviews)</span>
-    </div>
+    
     
     <div class="product-footer">
-      <span class="price">${{product.price}}</span>
+      <span class="price">₹{{product.price}}{{product.unit}}</span>
     
+    </div>
+    <div class="rating">
+      ★★★★☆
     </div>
   </div>
 </div>
