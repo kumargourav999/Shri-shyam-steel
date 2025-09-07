@@ -9,6 +9,7 @@ export class UserProductComponent implements OnInit{
   constructor(private productservice:ProductService){
 
   }
+    showDescription: boolean[] = [];
   imageBaseUrl = 'https://shri-shyam-steelok94311.onrender.com/'; 
   allproducts: any[] = [];
    showPreview = false;
@@ -50,5 +51,8 @@ export class UserProductComponent implements OnInit{
        this.selectedImage=`https://shri-shyam-steelok94311.onrender.com/${this.productimagelist[this.currentIndex]}`;
       }
     
+  }
+  toggleDescription(index: number) {
+    this.showDescription[index] = !this.showDescription[index];
   }
 }
