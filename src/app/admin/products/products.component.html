@@ -114,8 +114,9 @@
         <div style="display:flex">
         <div class="card-body">
           <h5 class="card-title">{{ product.productName }}</h5>
+          <p>{{product.productDescription}}</p>
           <p class="card-text text-muted">{{ product.productCategory }}</p>
-          <p class="card-text fw-bold">₹{{ product.price }}</p>
+          <p class="card-text fw-bold">₹{{ product.price }}{{product.unit}}</p>
         </div>
         <div style="margin:20px">
           <button class="btn btn-sm btn-outline-primary" (click)="onEdit(product)" style="margin-right:2px">
